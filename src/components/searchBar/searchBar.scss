@@ -27,8 +27,12 @@
     display: flex;
     place-items: center;
     justify-content: center;
-    padding: 10px 16px;
+    padding: 7px 10px;
     border-radius: 0 4px 4px 0;
     background-color: var(--white);
+
+    svg {
+      max-width: 2rem;
+    }
   }
 }

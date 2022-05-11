@@ -1,6 +1,6 @@
 import "./App.scss";
 import { Home } from "./pages/home/Home";
-import { Header } from "./components/header/Header";
+import { Header } from "./components/header/header";
 import { MovieModal } from "./pages/movie-modal/MovieModal";
 import { MovieProvider } from "./context/movieProvider";
 
