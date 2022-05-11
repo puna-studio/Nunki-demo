@@ -1,15 +1,22 @@
 import "./App.scss";
 import { Home } from "./pages/home/Home";
-import { Header } from "./components/header/Header";
-import { MovieModal } from "./pages/movie-modal/MovieModal";
+import { Selections } from "./pages/selections/Selections";
 import { MovieProvider } from "./context/movieProvider";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
       <MovieProvider>
-        <Header />
-        <Home />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/">
+              <Route index element={<Home />} />
+              <Route path="selections" element={<Selections />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+        {/* <Home /> */}
       </MovieProvider>
     </div>
   );

@@ -1,0 +1,24 @@
+.selection-wrapper {
+  min-height: 100%;
+}
+
+ol.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+
+  li {
+    width: 150px;
+  }
+}
+
+.selection {
+  padding: 5rem;
+
+  h2 {
+    color: var(--gray);
+    font-size: 2rem;
+    align-self: flex-end;
+    margin-bottom: 1.5rem;
+  }
+}

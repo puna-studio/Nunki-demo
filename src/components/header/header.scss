@@ -20,11 +20,31 @@
     display: flex;
     gap: 1.4rem;
     place-items: center;
+
     a {
+      position: relative;
       font-size: 16px;
       font-weight: 400;
       color: var(--gray);
       cursor: pointer;
+      overflow: hidden;
+      text-decoration: none;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 1px;
+        background-color: var(--white);
+        width: 100%;
+        transform: translateX(-105%);
+        transition: transform 250ms ease-in-out;
+      }
+
+      &:hover::after {
+        transform: translateX(0%);
+      }
     }
   }
 }
