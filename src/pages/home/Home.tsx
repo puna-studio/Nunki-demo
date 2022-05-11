@@ -19,11 +19,17 @@ export const Home = () => {
   useEffect(() => {
     console.log("hola");
   }, [count]);
-
+  
   return (
     <div className="home">
-      <SearchBar movies={getMovies} />
+      <div className="wrapper">
+        <div className="input-wrapper">
+        <SearchBar movies={getMovies} />
+        </div>
+   
       {movies && <Grid movies={movies} />}
+      </div>
+
     </div>
   );
 };
