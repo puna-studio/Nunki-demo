@@ -37,12 +37,13 @@ export const MovieModal = () => {
                 ? `https://image.tmdb.org/t/p/w1280/${movieData.backdrop_path}`
                 : placeholder
             }
-            alt={movieData.title}
           />
           <div className="modal-data">
             <p className="modal-title">{movieData.title}</p>
             <p className="modal-overview">{movieData.overview}</p>
-            <p className="sm">Genre: {movieData.genres[0].name}</p>
+            <p className="sm">
+              Genre: {movieData.genres.map((genre: any) => genre.name + " ")}
+            </p>
             <p className="sm">Duration: {movieData.runtime} min</p>
             <div className="votes">
               <p className="sm">{movieData.vote_average} / 10</p>
