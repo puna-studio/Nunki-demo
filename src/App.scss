@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext");
+
+.App {
+  * {
+    --white: #fff;
+    --gray: #c4c4c4;
+    --black: #343434;
+    --green: #adc287;
+    margin: 0;
+    padding: 0;
+    font-family: "Source Sans Pro";
+    list-style: none;
+    color: var(--black);
+    box-sizing: border-box;
+  }
+}
