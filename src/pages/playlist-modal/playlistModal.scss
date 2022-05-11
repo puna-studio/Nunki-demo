@@ -33,6 +33,55 @@
     color: var(--white);
   }
 
+  ul.selection-list {
+    max-height: 500px;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+      width: 0.4em;
+    }
+
+    &::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: #343434;
+      outline: 1px solid #343434;
+    }
+
+    li {
+      display: flex;
+      place-items: center;
+      justify-content: space-between;
+      padding: 0.5rem;
+      gap: 0.2rem;
+
+      &.favourited {
+        svg {
+          fill: var(--white);
+        }
+      }
+
+      p {
+        color: var(--white);
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      svg {
+        fill: transparent;
+        stroke: var(--white);
+        flex-shrink: 0;
+        transition: fill 250ms ease-in-out;
+
+        &:hover {
+          fill: var(--white);
+        }
+      }
+    }
+  }
+
   button {
     width: 100%;
     margin-top: auto;

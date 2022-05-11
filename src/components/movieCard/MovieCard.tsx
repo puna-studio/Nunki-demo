@@ -11,7 +11,7 @@ export const MovieCard = ({ movie }: any) => {
       <div
         className="favorite"
         onClick={() => {
-          setState({ ...state, selection: true });
+          setState({ ...state, selection: true, movie: movie });
         }}
       >
         <svg
@@ -25,7 +25,7 @@ export const MovieCard = ({ movie }: any) => {
       </div>
       <img
         onClick={() => {
-          setState({ ...state, movie: movie.id });
+          setState({ ...state, movie: movie });
         }}
         src={
           movie.poster_path

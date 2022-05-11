@@ -5,18 +5,18 @@ import "./movieModal.scss";
 import placeholder from "../../assets/placeholder.jpg";
 
 export const MovieModal = () => {
-  // const [movie, setMovie] = useContext(MovieContext);
   const [state, setState] = useContext(MovieContext);
 
   const apiKey = process.env.REACT_APP_API_KEY;
   const endpoint = process.env.REACT_APP_API_ENDPOINT;
-  const { data: movieData, isLoading } = useQuery(["movie", state.movie], () =>
-    get()
+  const { data: movieData, isLoading } = useQuery(
+    ["movie", state.movie.id],
+    () => get()
   );
 
   function get() {
     return fetch(
-      endpoint! + "movie/" + state.movie + "?api_key=" + apiKey
+      endpoint! + "movie/" + state.movie.id + "?api_key=" + apiKey
     ).then((res) => res.json());
   }
 

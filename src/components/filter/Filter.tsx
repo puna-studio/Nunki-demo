@@ -15,8 +15,6 @@ export const Filter = () => {
     } else {
       setState({ ...state, filter: { type: filter, order: "desc" } });
     }
-
-    console.log(state);
   }
 
   return (

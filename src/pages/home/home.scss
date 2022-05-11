@@ -4,17 +4,9 @@
   position: relative;
   overflow: auto;
 
-  //   .wrapper {
-  //     display: flex;
-  //     flex-direction: column;
-  //     gap: 2rem;
-  //     place-items: center;
-  //     height: 100vh;
-  //     width: 100%;
-  //     background: url("../../assets/bg.webp") no-repeat;
-  //     background-size: cover;
-  //     position: relative;
-  //   }
+  .wrapper {
+    min-height: 100vh;
+  }
 
   .input-wrapper {
     width: 100%;

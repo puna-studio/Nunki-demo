@@ -1,45 +1,47 @@
 import "./selections.scss";
 import { Header } from "../../components/header/Header";
+import { MovieCard } from "../../components/movieCard/MovieCard";
+import { useContext, useEffect, useState } from "react";
+import { MovieContext } from "../../context/movieProvider";
+import { MovieModal } from "../movie-modal/MovieModal";
+import { PlaylistModal } from "../playlist-modal/PlaylistModal";
 
 export const Selections = () => {
-  const selections = [
-    {
-      name: "favoritos",
-      id: 1,
-      movies: [1, 2, 3, 4, 5],
-    },
-    {
-      name: "Clasicas",
-      id: 2,
-      movies: [1, 2, 3, 4, 5],
-    },
-    {
-      name: "Terror",
-      id: 3,
-      movies: [1, 2, 3, 4, 5],
-    },
-    {
-      name: "Otras",
-      id: 4,
-      movies: [1, 2, 3, 4, 5],
-    },
-  ];
+  const [state, setState] = useContext(MovieContext);
+
+  const [selections, setSelections]: any = useState([]);
+
+  function getPlaylists() {
+    const playlists: Array<any> = JSON.parse(
+      localStorage.getItem("playlists")!
+    );
+
+    if (playlists !== null) {
+      setSelections(playlists);
+    }
+  }
+
+  useEffect(() => {
+    getPlaylists();
+  }, [state]);
 
   return (
     <div className="selections-wrapper">
       <Header />
       {selections.map((selection: any) => (
         <div className="selection">
-          <h2>{selection.name}</h2>
+          <h2 className="selection-title">{selection.name}</h2>
           <ol className="grid">
             {selection.movies.map((movie: any) => (
               <li>
-                <p>{movie}</p>
+                <MovieCard movie={movie} />
               </li>
             ))}
           </ol>
         </div>
       ))}
+      {state.movie && !state.selection && <MovieModal />}
+      {state.selection && <PlaylistModal />}
     </div>
   );
 };

@@ -16,7 +16,6 @@ function App() {
             </Route>
           </Routes>
         </BrowserRouter>
-        {/* <Home /> */}
       </MovieProvider>
     </div>
   );

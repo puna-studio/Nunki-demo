@@ -19,7 +19,7 @@ export const Home = () => {
 
         <Grid />
       </div>
-      {state.movie && <MovieModal />}
+      {state.movie && !state.selection && <MovieModal />}
       {state.selection && <PlaylistModal />}
     </div>
   );
