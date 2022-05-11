@@ -1,18 +1,80 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { MovieContext } from "../../context/movieProvider";
 import "./playlistModal.scss";
 
 export const PlaylistModal = () => {
   const [state, setState] = useContext(MovieContext);
 
-  function getPlaylist() {
-    const playlist = localStorage.getItem("playlist");
+  function getPlaylists() {
+    const playlists: Array<any> = JSON.parse(localStorage.getItem("playlists")!);
+    console.log(playlists);
   }
-
+  
   function createPlaylist(name: string) {
-    const playlists: any = localStorage.getItem("playlist");
-
-    for (let playlist in playlists) {
+    let playlists: Array<any> = JSON.parse(localStorage.getItem("playlists")!);
+    console.log(playlists);
+    
+    if (playlists !== null) {
+      let nameValid: boolean = true;
+      
+      for (let i = 0; i < playlists.length; i++) {
+        if (playlists[i].name === name) {
+          nameValid = false;
+          break;
+        }
+      }
+      
+      if (nameValid) {
+        const playlist = {
+          name: name,
+          movies: []
+        };
+        
+        playlists.push(playlist);
+        localStorage.setItem("playlists", JSON.stringify(playlists));
+      }
+    } else {
+      playlists = [];
+      const playlist = {
+        name: name,
+        movies: []
+      };
+      playlists.push(playlist);
+      localStorage.setItem("playlists", JSON.stringify(playlists));
+    }
+    
+    function addMovieToPlaylist(playlist: string, movie: any) {
+      const playlists: Array<any> = JSON.parse(localStorage.getItem("playlists")!);
+      
+      if (playlists !== null) {
+        for (let i = 0; i < playlists.length; i++) {
+          if (playlists[i].name === playlist) {
+            if (playlists[i].movies.indexOf(movie) === -1) {
+              playlists[i].movies.push(movie);
+              localStorage.setItem("playlists", JSON.stringify(playlists));
+              break;
+            } 
+          }
+        }
+      }
+    }
+    
+    function removeMovieToPlaylist(playlist: string, movie: any) {
+      const playlists: Array<any> = JSON.parse(localStorage.getItem("playlists")!);
+      console.log('4');
+      
+      if (playlists !== null) {
+        for (let i = 0; i < playlists.length; i++) {
+          if (playlists[i].name === playlist) {
+            if (playlists[i].movies.indexOf(movie) !== -1) {
+              const index = playlists[i].movies.indexOf(movie);
+              playlists.splice(index, 1);
+              localStorage.setItem("playlists", JSON.stringify(playlists));
+              break;
+            } 
+          }
+        }
+      }
     }
   }
 
@@ -28,7 +90,12 @@ export const PlaylistModal = () => {
       <div className="selection-modal">
         <div className="input-wrapper">
           <input type="text" placeholder="Selection name" />
-          <div className="add-wrapper">
+          <div
+          className="add-wrapper"
+          onClick={() => {
+            createPlaylist("prueba2");
+          }}>
+            
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
