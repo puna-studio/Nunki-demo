@@ -46,7 +46,7 @@ export const Grid = () => {
   }
 
   const { data, isLoading, hasNextPage, fetchNextPage } = useInfiniteQuery(
-    ["movies", debouncedText, state.filter],
+    ["movies", state.filter, debouncedText],
     ({ pageParam = 1 }) => get(debouncedText, pageParam, state.filter),
     {
       getNextPageParam: (lastPage) => {
@@ -85,13 +85,13 @@ export const Grid = () => {
       >
         <ol>
           {movies.map((movie: any) => (
-            <li
-              key={movie.id}
-              onClick={() => {
-                setState({ ...state, movie: movie.id });
-              }}
-            >
-              <div className="favorite">
+            <li key={movie.id}>
+              <div
+                className="favorite"
+                onClick={() => {
+                  setState({ ...state, selection: true });
+                }}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -102,6 +102,9 @@ export const Grid = () => {
                 </svg>
               </div>
               <img
+                onClick={() => {
+                  setState({ ...state, movie: movie.id });
+                }}
                 src={
                   movie.poster_path
                     ? `https://image.tmdb.org/t/p/w300/${movie.poster_path}`

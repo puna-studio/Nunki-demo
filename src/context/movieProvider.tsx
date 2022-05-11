@@ -8,6 +8,7 @@ export const MovieProvider = ({ children }: any) => {
       type: "popularity",
       order: "desc",
     },
+    selection: false,
   });
 
   return (

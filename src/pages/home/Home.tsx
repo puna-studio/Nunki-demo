@@ -4,6 +4,7 @@ import { Grid } from "../../components/grid/Grid";
 import { MovieModal } from "../movie-modal/MovieModal";
 import "./home.scss";
 import { MovieContext } from "../../context/movieProvider";
+import { PlaylistModal } from "../playlist-modal/PlaylistModal";
 
 export const Home = () => {
   const [state, setState] = useContext(MovieContext);
@@ -16,7 +17,8 @@ export const Home = () => {
 
         <Grid />
       </div>
-      {state.movie && <MovieModal></MovieModal>}
+      {state.movie && <MovieModal />}
+      {state.selection && <PlaylistModal />}
     </div>
   );
 };

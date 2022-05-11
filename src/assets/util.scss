@@ -1,0 +1,14 @@
+.modal-wrapper {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: grid;
+  place-items: center;
+  place-content: center;
+
+  .modal-backdrop {
+    position: absolute;
+    z-index: 5;
+    inset: 0;
+  }
+}

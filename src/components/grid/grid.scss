@@ -49,7 +49,7 @@
         place-items: center;
         padding: 0.3rem;
         transition: transform ease-in-out 300ms;
-        background-color: var(--gray);
+        background-color: var(--black);
         border-radius: 4px;
 
         &.active {
@@ -76,7 +76,6 @@
             text-decoration-style: solid;
             text-decoration-color: #000;
             text-transform: none;
-            block-progression: tb;
             isolation: auto;
             mix-blend-mode: normal;
             font-family: sans-serif;

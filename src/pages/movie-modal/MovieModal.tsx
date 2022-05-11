@@ -19,7 +19,6 @@ export const MovieModal = () => {
       endpoint! + "movie/" + state.movie + "?api_key=" + apiKey
     ).then((res) => res.json());
   }
-  console.log(movieData);
 
   if (!isLoading)
     return (
@@ -30,13 +29,14 @@ export const MovieModal = () => {
             setState({ ...state, movie: null });
           }}
         ></div>
-        <div className="modal">
+        <div className="details-modal">
           <img
             src={
               movieData.backdrop_path
                 ? `https://image.tmdb.org/t/p/w1280/${movieData.backdrop_path}`
                 : placeholder
             }
+            alt={movieData.title}
           />
           <div className="modal-data">
             <p className="modal-title">{movieData.title}</p>
