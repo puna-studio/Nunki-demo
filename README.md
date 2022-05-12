@@ -1,6 +1,7 @@
 Demo project for Nunki by Puna
 
-After cloning the repository
+After cloning the repository:
 
--- npm i
--- npm start
+npm i
+
+npm start
