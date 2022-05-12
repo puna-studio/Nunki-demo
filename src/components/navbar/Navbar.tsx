@@ -1,8 +1,8 @@
-import "./header.scss";
-import logo from "../../assets/logo.svg";
 import { Link } from "react-router-dom";
+import logo from "../../assets/logo.svg";
+import "./navbar.scss";
 
-export const Header = () => {
+export const Navbar = () => {
   return (
     <div className="header">
       <Link to={"/"}>

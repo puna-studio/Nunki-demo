@@ -126,6 +126,11 @@ export const PlaylistModal = () => {
               const value = e.target.value;
               setSelectionName(value);
             }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                createPlaylist(selectionName);
+              }
+            }}
           />
           <div
             className="add-wrapper"
